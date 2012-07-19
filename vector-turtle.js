@@ -14,6 +14,7 @@ VectorTurtle = {
   {
     _manager = aMan;
     x = anX;
+    y = aY;
     _radius = Math.sqrt( width * width + height * height ) / 2;
     _position = new Vector2( x, y );
     _speed = aSpeed;
