@@ -1,4 +1,4 @@
-JS-Steering-Bahaviors
+JS-Steering-Behaviors
 =====================
 
-JavaScript implementation of Craig Reynolds' Steering Behaviors For Autonomous Characters 
+JavaScript implementation of Craig Reynolds' Steering Behaviors For Autonomous Characters
