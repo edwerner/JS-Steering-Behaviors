@@ -59,7 +59,7 @@ var Vector2 = {
     return Math.sqrt( deltaX * deltaX + deltaY * deltaY );
   },
   
-  distanceSqr : function( )
+  distanceSqr : function( vector )
   {
     var deltaX = _x - vector.x;
     var deltaY = _y - vector.y;
@@ -98,7 +98,7 @@ var Vector2 = {
     return Math.atan2( _y, _x ) * 180 / Math.PI;
   },
   
-  degToVec : function( )
+  degToVec : function( deg )
   {
     var rad = deg * DEGRAD;
     return new Vector2( Math.cos( rad ), Math.sin( rad ) );
@@ -134,4 +134,5 @@ var Vector2 = {
   {
     return ( "x : " + int( _x * 100 ) / 100 + ", \ty : " + int( _y * 100 ) / 100 );
   }
+  
 };
