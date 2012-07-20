@@ -9,8 +9,9 @@ var Manager = {
   flockForward : undefined,
   cohesn : undefined, //new Vector2( )
   obs : undefined, // new Obstacle( )
+  WANDERER_COUNT : 1,
   
-  Manager : function( )
+  initialize : function( )
   {
     _obstacleArray = [];
     _turtleArray = [];
@@ -33,19 +34,20 @@ var Manager = {
     for ( var i = 0; i < 10; i ++ )
     {
       // add obstacles to screen
-      var circle = new Obstacle( );
+      // var circle = new Obstacle( );
     }
     
-    for ( var j = 0; j < 50; j++ )
+    for ( var j = 0; j < this.WANDERER_COUNT; j++ )
     {
       // add wanderers to screen
       var wanderer = new Wanderer( );
+      wanderer.initialize( );
     }
     // start timer
-    _lastTime = getTimer( );
+    // _lastTime = getTimer( );
   },
   
-  frameLoop : function( e )
+  /*frameLoop : function( e )
   {
     _curTime = getTimer( );
     _dt = ( _curTime -_lastTime ) / 1000;
@@ -66,7 +68,7 @@ var Manager = {
     {
       _turtleArray[ j ].update( _dt );
     }
-  }
+  }*/
   /*paceChange : function( e )
 	{
 		SteeringVehicle._maxSpeed = e.target.value;

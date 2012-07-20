@@ -1,17 +1,42 @@
-VectorTurtle = {
+// // emulate AS3 'super' construct
+// // http://jsfiddle.net/missingno/wAHqd/
+// var superPairs = [];
+// var injectSuper = function( parent, child )
+// {
+//   superPairs.push( { parent : parent, child : child } );
+// };
+// 
+// function $super( baseClass, object )
+// {
+//   for ( var i = 0; i < superPairs.length; i++ )
+//   {
+//     var p = superPairs[ i ];
+//     
+//     if ( p.child === baseClass )
+//     {
+//       return p.parent;
+//     }
+//   }
+// }
+// 
+// // injectSuper( VectorTurtle, SteeringVehicle );
+
+
+var VectorTurtle = function( )
+{
+  this.position = undefined;
+  this._fwd = undefined;
+  this._right = undefined;
+  this._radius = undefined;
+  this._speed = 10;
+  this._velocity = undefined;
+  this._manager = undefined;
+  this.width = 50;
+  this.height = 50;
   
-  _position : undefined,
-  _fwd : undefined,
-  _right : undefined,
-  _radius : undefined,
-  _speed : 10,
-  _velocity : undefined,
-  _manager : undefined,
-  width : 50, 
-  height : 50,
-  
-  VectorTurtle : function( aMan, anX, aY, aSpeed )
+  this.init = function( aMan, anX, aY, aSpeed )
   {
+    console.log( 'VectorTurtle.init( )' );
     _manager = aMan;
     x = anX;
     y = aY;
@@ -21,89 +46,103 @@ VectorTurtle = {
     _fwd = new Vector2( 1, 0 );
     _right = _fwd.perpRight( );
     _velocity = _fwd.multiply( _speed );
-  },
+  };
   
-  getPosition : function( )
+  this.getPosition = function( )
   {
+    console.log( 'VectorTurtle.getPosition( )' );
     return _position;
-  },
+  };
   
-  getFwd : function( )
+  this.getFwd = function( )
   {
+    console.log( 'VectorTurtle.getFwd( )' );
     return _fwd;
-  },
+  };
   
-  getRight : function( )
+  this.getRight = function( )
   {
+    console.log( 'VectorTurtle.getRight( )' );
     return _right;
-  },
+  };
   
-  getSpeed : function( )
+  this.getSpeed = function( )
   {
+    console.log( 'VectorTurtle.getSpeed( )' );
     return _speed;
-  },
+  };
   
-  getVelocity : function( )
+  this.getVelocity = function( )
   {
+    console.log( 'VectorTurtle.getVelocity( )' );
     return _velocity;
-  },
+  };
   
-  getRadius : function( )
+  this.getRadius = function( )
   {
+    console.log( 'VectorTurtle.getRadius( )' );
     return _radius;
-  },
+  };
   
-  setPosition : function( pos )
+  this.setPosition = function( pos )
   {
+    console.log( 'VectorTurtle.setPosition( )' );
     _position.x = pos.x;
     _position.y = pos.y;
     x = pos.x;
     y = pos.y;
-  },
+  };
   
-  setFwd : function( vector )
+  this.setFwd = function( vector )
   {
+    console.log( 'VectorTurtle.setFwd( )' );
     _fwd.x = vector.x;
     _fwd.y = vector.y;
     _fwd.normalize( );
     _right = _fwd.perpRight( );
     rotation = _fwd.getAngle( );
-  },
+  };
   
-  setSpeed : function( amt )
+  this.setSpeed = function( amt )
   {
+    console.log( 'VectorTurtle.setSpeed( )' );
     _speed = amt;
-  },
+  };
   
-  update : function( dt )
+  this.update = function( dt )
   {
+    console.log( 'VectorTurtle.update( )' );
     _velocity = _fwd.multiply( _speed );
     this.move( _velocity.multiply ( dt ) );
-  },
+  };
   
-  turnRight : function( ang )
+  this.turnRight = function( ang )
   {
+    console.log( 'VectorTurtle.turnRight( )' );
     rotation += ang;
     _fwd = Vector2.degToVec( rotation );
-  },
+  };
   
-  turnLeft : function( ang )
+  this.turnLeft = function( ang )
   {
+    console.log( 'VectorTurtle.turnLeft( )' );
     rotation -= ang;
     _fwd = Vector2.degToVec( rotation );
-  },
+  };
   
-  turnAbs : function( ang )
+  this.turnAbs = function( ang )
   {
+    console.log( 'VectorTurtle.turnAbs( )' );
     rotation = ang;
     _fwd = Vector2.degToVec( rotation );
-  },
+  };
   
-  move : function( )
+  this.move = function( )
   {
+    console.log( 'VectorTurtle.move( )' );
     _position = _position.add( motion );
     x = _position.x;
     y = _position.y;
-  }
+  };
   
 };
